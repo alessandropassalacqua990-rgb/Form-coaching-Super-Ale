@@ -758,7 +758,7 @@ function selectPercorso(el){
 function toggleOption(el){el.classList.toggle('selected');el.style.transform='scale(0.97)';setTimeout(()=>el.style.transform='',150);}
 function selectGender(el){document.querySelectorAll('.gender-card').forEach(c=>c.classList.remove('selected'));el.classList.add('selected');formData.gender=el.dataset.value;}
 
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx4N16lIssbl6r7f02mv6kqXXKg_mP2JDuoJ3HJ-rk8h8Fw5nZs4IBFvVZBzHygUPSf/exec';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzJlibT5iSNjtvmoHgZTXMThjXv-Bwqlt_8Suce0-53altfWOrbEhVxZEOHHEqfNru-/exec';
 
 function inviaDati(){
   if(inviato) return Promise.resolve();
