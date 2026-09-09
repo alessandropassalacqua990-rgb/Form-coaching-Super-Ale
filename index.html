@@ -164,6 +164,10 @@
   .success-icon { width:80px; height:80px; border-radius:50%; background:rgba(158,27,43,0.15); border:2px solid var(--red); display:flex; align-items:center; justify-content:center; font-size:40px; margin-bottom:24px; animation:popIn 0.5s 0.2s cubic-bezier(0.22,1,0.36,1) both; }
   @keyframes popIn { from{transform:scale(0)} to{transform:scale(1)} }
   .success-title { font-family:'Oswald',sans-serif; font-size:32px; font-weight:600; text-transform:uppercase; margin-bottom:12px; }
+  .success-alert { width:100%; max-width:340px; margin:4px 0 22px; padding:20px 20px 18px; border:2px solid var(--gold); border-radius:var(--radius); background:var(--gold-dim); text-align:left; }
+  .success-alert-title { font-family:'Oswald',sans-serif; font-size:21px; font-weight:600; text-transform:uppercase; line-height:1.15; color:var(--gold); margin-bottom:10px; }
+  .success-alert-body { font-size:15px; line-height:1.55; color:var(--white); }
+  .success-alert-note { display:block; margin-top:12px; font-size:13px; color:var(--text-muted); }
   .success-text { font-size:15px; color:var(--text-secondary); line-height:1.6; max-width:300px; }
   .success-cta { margin-top:32px; display:flex; flex-direction:column; gap:12px; width:100%; max-width:300px; }
   .cta-wa { display:flex; align-items:center; justify-content:center; gap:10px; padding:14px 24px; background:#25D366; color:white; border-radius:var(--radius); text-decoration:none; font-weight:600; font-size:15px; transition:all 0.2s; }
@@ -568,6 +572,13 @@
   <div class="success-screen" id="successScreen">
     <div class="success-icon">✓</div>
     <div class="success-title">Perfetto, ci siamo!</div>
+    <div class="success-alert">
+      <div class="success-alert-title">Ora apri la tua email</div>
+      <div class="success-alert-body">
+        Ti è arrivato l'invito dell'appuntamento: aprilo e accettalo, così la call entra nel tuo calendario e ti arriva il promemoria.
+        <span class="success-alert-note">Se non lo trovi, guarda nello spam o nella scheda Promozioni.</span>
+      </div>
+    </div>
     <div class="success-text" id="successMsg">Grazie! Ti contatterò per confermare la call.</div>
   </div>
 
@@ -776,7 +787,7 @@ function submitForm(){
   document.getElementById('successScreen').classList.add('active');
 
   const nome = (formData.name||'').split(' ')[0];
-  const messaggio = 'Grazie '+nome+'! La call è fissata: trovi giorno e ora nella mail di conferma che ti è appena arrivata. Ti scrivo su WhatsApp con l\'anamnesi completa da compilare prima di sentirci.';
+  const messaggio = 'Grazie '+nome+'! Poi ti scrivo su WhatsApp con l\'anamnesi completa da compilare prima di sentirci.';
 
   Promise.resolve(inviaDati()).then(function(){
     document.getElementById('successMsg').textContent=messaggio;
